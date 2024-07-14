@@ -1,6 +1,11 @@
 package rectangleLike:
 
+    import scala.compiletime.ops.double
+
     trait RectangleLike {
-        def iAmRectangleLike(): Unit =
-            println("I am rectangle like.")
+        this: java.awt.geom.Ellipse2D.Double =>
+            def iAmRectangleLike(): Unit =
+                println("I am rectangle like.")
+
+            def translate(moveX: Double, moveY: Double): Unit
     }
