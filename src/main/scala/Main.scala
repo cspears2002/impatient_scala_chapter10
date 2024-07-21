@@ -1,13 +1,12 @@
 import rectangleLike.*
-
-// https://github.com/viktor-podzigun/scala-impatient/blob/master/src/main/scala/Chapter10.scala
-// https://github.com/BasileDuPlessis/scala-for-the-impatient/blob/master/src/main/scala/com/basile/scala/ch10/Ex01.scala
+import orderedPoint.*
 
 @main def hello(): Unit =
   println("Hello world!")
   println(msg)
 
   makeAnEgg()
+  comparePts()
 
 
 def msg = "I was compiled by Scala 3. :)"
@@ -36,3 +35,10 @@ def makeAnEgg(): Unit =
   val newH = egg.getHeight()
   println(s"Egg Width: $newW")
   println(s"Egg Height: $newH")
+
+
+def comparePts(): Unit =
+  val point1 = new java.awt.Point(2, 3) with OrderedPoint
+  val point2 = new java.awt.Point(1, 2) with OrderedPoint
+  val comp = point2.compare(point1)
+  println(s"point2 <= point1: $comp")
