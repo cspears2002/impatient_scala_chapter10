@@ -7,5 +7,9 @@ package rectangleLike:
             def iAmRectangleLike(): Unit =
                 println("I am rectangle like.")
 
-            def translate(moveX: Double, moveY: Double): Unit
+            def translate(moveX: Double, moveY: Double): Unit =
+                setFrame(getX + moveX, getY + moveY, getWidth, getHeight)
+
+            def grow(dw: Double, dh: Double): Unit =
+                setFrame(getX, getY, getWidth + dw, getHeight + dh)
     }
