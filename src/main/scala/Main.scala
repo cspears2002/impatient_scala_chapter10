@@ -1,10 +1,13 @@
 import rectangleLike.*
+import orderedPoint.*
+
 
 @main def hello(): Unit =
   println("Hello world!")
   println(msg)
 
   makeAnEgg()
+  comparePts()
 
 
 def msg = "I was compiled by Scala 3. :)"
@@ -34,3 +37,12 @@ def makeAnEgg(): Unit =
   println(s"Egg Width: $newW")
   println(s"Egg Height: $newH")
 
+
+def comparePts(): Unit =
+  val pt1 = new OrderedPoint(1, 1)
+  val pt2 = new OrderedPoint(1, 2)
+  assert(pt1 < pt2)
+
+  val pt3 = new OrderedPoint(1, 1)
+  val pt4 = new OrderedPoint(2, 1)
+  assert(pt3 < pt4)

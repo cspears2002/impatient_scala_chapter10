@@ -1,12 +1,10 @@
-package orderedPoint {
+package orderedPoint:
 
     import java.awt.Point
 
-    trait OrderedPoint extends java.awt.Point {
-        this: scala.math.Ordered[Point] =>
-            def compare(that: Point) =
-                if this.x <= that.x && this.y < that.y then
-                    -1
-                else
-                    1
-}
+    class OrderedPoint(x: Int, y: Int) extends Point(x, y) with scala.math.Ordered[Point] {
+        def compare(that: Point): Int =
+            if (x < that.x || (x == that.x && y < that.y)) -1
+            else if (x == that.x && y == that.y) 0
+            else 1
+    }
