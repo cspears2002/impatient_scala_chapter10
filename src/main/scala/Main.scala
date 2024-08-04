@@ -1,13 +1,18 @@
-import rectangleLike.*
+import logger.*
 import orderedPoint.*
+import rectangleLike.*
 
 
 @main def hello(): Unit =
   println("Hello world!")
   println(msg)
 
-  makeAnEgg()
-  comparePts()
+  // makeAnEgg()
+  // comparePts()
+
+  val plainText = "The quick brown fox jumps over the lazy dog"
+  val encryptMessage = EncryptMessage()
+  encryptMessage.encryptMsg(plainText)
 
 
 def msg = "I was compiled by Scala 3. :)"
@@ -46,3 +51,7 @@ def comparePts(): Unit =
   val pt3 = new OrderedPoint(1, 1)
   val pt4 = new OrderedPoint(2, 1)
   assert(pt3 < pt4)
+
+
+class EncryptMessage extends CryptoLogger
+
