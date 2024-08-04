@@ -7,5 +7,6 @@ package logger:
         def log(msg: String) = println(msg)
         
         def encryptMsg(msg: String, key: Int = 3): Unit =
-            val lowerMsg = msg.toLowerCase()
-            val lettersArray = ('a' to 'z').toArray
+            val letterWithIdxLst = ('a' to 'z').toList.zipWithIndex.toMap
+            println(letterWithIdxLst)
+
