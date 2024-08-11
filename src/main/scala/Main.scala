@@ -12,7 +12,9 @@ import rectangleLike.*
 
   val plainText = "The quick brown fox jumps over the lazy dog"
   val encryptMessage = EncryptMessage()
-  encryptMessage.encryptMsg(plainText)
+  encryptMessage.encryptMsg(plainText, -3)
+  val encryptedMsg = "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald"
+  encryptMessage.encryptMsg(encryptedMsg, 3)
 
 
 def msg = "I was compiled by Scala 3. :)"
