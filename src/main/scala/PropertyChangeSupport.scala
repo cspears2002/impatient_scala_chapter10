@@ -28,4 +28,13 @@ class MyPoint(x: Int, y: Int) extends Point(x: Int, y: Int) with PropertyChangeS
 
     def removePropertyChangeListener(propertyName: String, listener: PropertyChangeListener): Unit = 
         this.pcs.removePropertyChangeListener(propertyName, listener)
+
+    def getPropertyChangeListeners(): Array[PropertyChangeListener] = 
+        this.pcs.getPropertyChangeListeners()
+
+    def getPropertyChangeListeners(propertyName: String): Array[PropertyChangeListener] = 
+        this.pcs.getPropertyChangeListeners(propertyName)
+
+    def firePropertyChange(propertyName: String, oldValue: Int, newValue: Int): Unit = 
+        this.pcs.firePropertyChange(propertyName, oldValue, newValue)
 }
