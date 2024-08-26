@@ -1,5 +1,6 @@
 import logger.*
 import orderedPoint.*
+import propertyChangeSupport.*
 import rectangleLike.*
 
 
@@ -7,14 +8,34 @@ import rectangleLike.*
   println("Hello world!")
   println(msg)
 
-  // makeAnEgg()
-  // comparePts()
+  makeAnEgg()
+  comparePts()
 
   val plainText = "The quick brown fox jumps over the lazy dog"
   val encryptMessage = EncryptMessage()
   encryptMessage.encryptMsg(plainText, -3)
   val encryptedMsg = "qeb nrfzh yoltk clu grjmp lsbo qeb ixwv ald"
   encryptMessage.encryptMsg(encryptedMsg, 3)
+
+  val listener = PointPropertyListener()
+  val point = MyPoint(0, 0)
+
+  point.addPropertyChangeListener(listener)
+  var listeners = point.getPropertyChangeListeners()
+  println(s"I am listening with ${listeners.length} listeners")
+  point.setX(1.0)
+  point.removePropertyChangeListener(listener)
+  listeners = point.getPropertyChangeListeners()
+  println(s"I am listening with ${listeners.length} listeners")
+
+  point.addPropertyChangeListener("y", listener)
+  listeners = point.getPropertyChangeListeners("y")
+  println(s"I am listening with ${listeners.length} listeners")
+  point.setX(1.0)
+  point.setY(1.0)
+  point.removePropertyChangeListener("y", listener)
+  listeners = point.getPropertyChangeListeners("y")
+  println(s"I am listening with ${listeners.length} listeners")
 
 
 def msg = "I was compiled by Scala 3. :)"
