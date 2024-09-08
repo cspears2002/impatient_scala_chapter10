@@ -2,6 +2,7 @@ import logger.*
 import orderedPoint.*
 import propertyChangeSupport.*
 import rectangleLike.*
+import consoleLoggedAccount.ConsoleLoggedAccount
 
 
 @main def hello(): Unit =
@@ -37,8 +38,18 @@ import rectangleLike.*
   listeners = point.getPropertyChangeListeners("y")
   println(s"I am listening with ${listeners.length} listeners")
 
+  makeAnAccount
+
 
 def msg = "I was compiled by Scala 3. :)"
+
+
+def makeAnAccount: Unit =
+  val myAccount = ConsoleLoggedAccount()
+  val myId = myAccount.id
+  println(s"This is my account id: $myId")
+  val myLogId = myAccount.logId
+  println(s"This is my log id: $myLogId")
 
 
 def makeAnEgg(): Unit =
