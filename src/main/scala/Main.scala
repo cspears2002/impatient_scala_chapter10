@@ -1,7 +1,9 @@
+import aussie.*
 import logger.*
 import orderedPoint.*
 import propertyChangeSupport.*
 import rectangleLike.*
+
 import consoleLoggedAccount.ConsoleLoggedAccount
 
 
@@ -39,6 +41,13 @@ import consoleLoggedAccount.ConsoleLoggedAccount
   println(s"I am listening with ${listeners.length} listeners")
 
   makeAnAccount
+
+  val glee = Glee("Glee")
+  glee.doggieName()
+  val dogColor = glee.color
+  println(s"Dog is $dogColor.")
+  glee.bark("Let's play!")
+  glee.wag()
 
 
 def msg = "I was compiled by Scala 3. :)"
@@ -88,4 +97,7 @@ def comparePts(): Unit =
 
 
 class EncryptMessage extends CryptoLogger
+
+
+class Glee(name: String) extends aussie.AustralianShepherd(name)
 
