@@ -46,6 +46,8 @@ import consoleLoggedAccount.ConsoleLoggedAccount
   glee.doggieName()
   val dogColor = glee.color
   println(s"Dog is $dogColor.")
+  val gleeAge = glee.age
+  println(s"Glee is $gleeAge years old.")
   glee.bark("Let's play!")
   glee.wag()
 
@@ -99,5 +101,7 @@ def comparePts(): Unit =
 class EncryptMessage extends CryptoLogger
 
 
-class Glee(name: String) extends aussie.AustralianShepherd(name)
+class Glee(name: String) extends aussie.AustralianShepherd(name) {
+  val age = 12
+}
 
