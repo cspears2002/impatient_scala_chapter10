@@ -1,10 +1,12 @@
 import aussie.*
+import buffering.*
 import logger.*
 import orderedPoint.*
 import propertyChangeSupport.*
 import rectangleLike.*
 
 import consoleLoggedAccount.ConsoleLoggedAccount
+import java.io.FileInputStream
 
 
 @main def hello(): Unit =
@@ -50,6 +52,12 @@ import consoleLoggedAccount.ConsoleLoggedAccount
   println(s"Glee is $gleeAge years old.")
   glee.bark("Let's play!")
   glee.wag()
+
+  val filePath = "/Users/christopherspears/Documents/ScalaProjects/impatient_scala_chapter10/src/main/scala/myFile.txt"
+  val b = new FileInputStream(filePath) with buffering.Buffering
+  val ab = new Array[Byte](1024)
+  b.read(ab)
+  ab.foreach(a => print(a.toChar))
 
 
 def msg = "I was compiled by Scala 3. :)"
@@ -104,4 +112,5 @@ class EncryptMessage extends CryptoLogger
 class Glee(name: String) extends aussie.AustralianShepherd(name) {
   val age = 12
 }
+
 

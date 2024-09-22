@@ -1,9 +1,12 @@
-package bufferedInputStream:
+package buffering:
 
-    import java.io.InputStream
+    import java.io.FileInputStream
     import java.io.BufferedInputStream
 
-    trait BufferedInpuStream(inp: InputStream) extends InputStream {
-        val bufferedReader = BufferedInputStream(inp)
-        override def read(): Int = bufferedReader.read()
+    trait Buffering {
+        this: FileInputStream =>
+            val b = BufferedInputStream(this)
+            override def read(ab: Array[Byte]): Int = {
+                b.read(ab)
+            }
     }
