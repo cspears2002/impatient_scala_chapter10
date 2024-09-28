@@ -54,10 +54,7 @@ import java.io.FileInputStream
   glee.wag()
 
   val filePath = "/Users/christopherspears/Documents/ScalaProjects/impatient_scala_chapter10/src/main/scala/myFile.txt"
-  val b = new FileInputStream(filePath) with buffering.Buffering
-  val ab = new Array[Byte](1024)
-  b.read(ab)
-  ab.foreach(a => print(a.toChar))
+  bufferedReader(filePath)
 
 
 def msg = "I was compiled by Scala 3. :)"
@@ -113,4 +110,23 @@ class Glee(name: String) extends aussie.AustralianShepherd(name) {
   val age = 12
 }
 
+
+def bufferedReader(filePath: String): Unit = {
+  val bStream = new FileInputStream(filePath) with buffering.Buffering
+  var blen = 1024
+  var bArray = new Array[Byte](blen)
+  var c = 0
+  var len = 0
+  while(bStream.available() > 0) {
+    if (bStream.available() > blen) {
+      len = blen
+    } else {
+      len = bStream.available()
+    }
+    c = bStream.read(bArray, 0, len)
+    if (c == -1) return
+    bStream.log((for (i <- 0 to (c - 1)) yield bArray(i).toChar).mkString)
+  }
+  bStream.close()
+}
 
