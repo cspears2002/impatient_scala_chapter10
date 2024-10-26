@@ -1,5 +1,6 @@
 import aussie.*
 import buffering.*
+import iterInputStr.*
 import logger.*
 import orderedPoint.*
 import propertyChangeSupport.*
@@ -55,6 +56,8 @@ import java.io.FileInputStream
 
   val filePath = "/Users/christopherspears/Documents/ScalaProjects/impatient_scala_chapter10/src/main/scala/myFile.txt"
   bufferedReader(filePath)
+  println()
+  readIterInputStream(filePath)
 
 
 def msg = "I was compiled by Scala 3. :)"
@@ -130,3 +133,12 @@ def bufferedReader(filePath: String): Unit = {
   bStream.close()
 }
 
+
+def readIterInputStream(filePath: String): Unit = {
+  val fileStream = new FileInputStream(filePath)
+  val myIterInputStr = IterableInputStream(fileStream)
+  val byteIterator = myIterInputStr.iterator
+  while (byteIterator.hasNext) {
+    println(byteIterator.next().toChar)
+  }
+}
