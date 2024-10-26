@@ -141,4 +141,5 @@ def readIterInputStream(filePath: String): Unit = {
   while (byteIterator.hasNext) {
     println(byteIterator.next().toChar)
   }
+  myIterInputStr.close()
 }
