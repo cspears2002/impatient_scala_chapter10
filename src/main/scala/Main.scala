@@ -1,5 +1,6 @@
 import aussie.*
 import buffering.*
+import dimension.*
 import iterInputStr.*
 import logger.*
 import orderedPoint.*
@@ -59,6 +60,10 @@ import java.io.FileInputStream
   println()
   readIterInputStream(filePath)
 
+  println()
+  val secs = Seconds(1)
+  val meters = Meters(1)
+  println(secs + meters)
 
 def msg = "I was compiled by Scala 3. :)"
 
