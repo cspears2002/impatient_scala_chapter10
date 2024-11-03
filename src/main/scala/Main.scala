@@ -62,8 +62,7 @@ import java.io.FileInputStream
 
   println()
   val secs = Seconds(1)
-  val meters = Meters(1)
-  println(secs + meters)
+  println(secs)
 
 def msg = "I was compiled by Scala 3. :)"
 
